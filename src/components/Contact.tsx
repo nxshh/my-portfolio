@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Mail, Phone, Github, Linkedin, Send } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input';
-import { Textarea } from '@/components/ui/Textarea';
+import { Button } from '@/components/ui/Button.tsx';
+import { Input } from './ui/Input.tsx';
+import { Textarea } from '@/components/ui/Textarea.tsx';
 
 export const Contact = () => {
   return (

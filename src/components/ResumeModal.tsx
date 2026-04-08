@@ -5,9 +5,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogDescription,
-} from '@/components/ui/Dialog';
+} from '@/components/ui/Dialog.tsx';
 import { Shield, Settings, Download } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/Button.tsx';
 
 interface ResumeModalProps {
   isOpen: boolean;
