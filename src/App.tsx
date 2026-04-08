@@ -37,15 +37,16 @@ export default function App() {
             className="fixed inset-0 z-[100] bg-background flex items-center justify-center"
           >
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="flex flex-col items-center gap-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              className="flex flex-col items-center gap-6"
             >
-              <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center shadow-[0_0_20px_rgba(127,90,240,0.5)]">
-                <Rocket className="w-6 h-6 text-white" />
-              </div>
-              <span className="font-heading font-bold text-2xl tracking-tighter">Nisarga<span className="text-primary">.</span></span>
+              <div className="w-px h-12 bg-primary/30 animate-pulse" />
+              <span className="font-heading italic font-light text-4xl tracking-widest text-primary uppercase">
+                Nisarga
+              </span>
+              <div className="w-px h-12 bg-primary/30 animate-pulse" />
             </motion.div>
           </motion.div>
         )}
@@ -82,21 +83,21 @@ export default function App() {
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={!isLoading ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold tracking-tight mb-6"
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-6xl md:text-8xl lg:text-9xl font-heading font-medium tracking-tight mb-8"
             >
-              Nisarga <span className="text-primary">Murthy</span>
+              Nisarga <span className="italic font-light text-primary">Murthy</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={!isLoading ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed font-light tracking-wide"
             >
-              DevOps Engineer <span className="mx-2 text-white/20">|</span> Cybersecurity Engineer
+              DevOps Engineer <span className="mx-3 text-white/10">/</span> Cybersecurity Engineer
               <br />
-              <span className="text-foreground font-medium">I automate chaos. I secure what others overlook.</span>
+              <span className="text-foreground/80 italic">Automating chaos. Securing the overlooked.</span>
             </motion.p>
 
             <motion.div

@@ -43,11 +43,11 @@ export const Experience = () => {
           </div>
           {/* Card */}
           <div className="w-[calc(100%-4rem)] md:w-[45%] glass p-6 rounded-xl border border-white/10 hover:border-primary/50 transition-colors duration-300">
-            <div className="flex items-center justify-between mb-1">
-              <div className="font-bold text-white">{exp.company}</div>
-              <time className="font-mono text-xs text-muted-foreground">{exp.period}</time>
+            <div className="flex items-center justify-between mb-2">
+              <div className="font-heading italic text-xl text-white">{exp.company}</div>
+              <time className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/60">{exp.period}</time>
             </div>
-            <div className="text-primary font-medium mb-2">{exp.role}</div>
+            <div className="text-primary font-light tracking-wide mb-3">{exp.role}</div>
             <div className="text-sm text-muted-foreground leading-relaxed">
               {exp.description}
             </div>

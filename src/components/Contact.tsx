@@ -16,8 +16,8 @@ export const Contact = () => {
         className="space-y-8"
       >
         <div>
-          <h3 className="text-3xl font-heading font-bold mb-4">Get in Touch</h3>
-          <p className="text-muted-foreground leading-relaxed">
+          <h3 className="text-4xl font-heading font-medium mb-6 italic">Get in Touch</h3>
+          <p className="text-muted-foreground leading-relaxed font-light tracking-wide">
             Have a project in mind or just want to chat about DevOps and Security? 
             Feel free to reach out through any of these channels.
           </p>

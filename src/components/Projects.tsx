@@ -51,9 +51,9 @@ export const Projects = () => {
               </div>
             </div>
             
-            <h3 className="text-2xl font-heading font-bold mb-3 flex items-center gap-2">
+            <h3 className="text-3xl font-heading font-medium mb-4 flex items-center gap-3">
               {project.title}
-              {project.hot && <span className="text-[10px] uppercase tracking-widest bg-primary/20 text-primary px-2 py-0.5 rounded-full border border-primary/30">Hot</span>}
+              {project.hot && <span className="text-[9px] uppercase tracking-[0.2em] bg-primary/10 text-primary px-2 py-0.5 rounded-full border border-primary/20">Featured</span>}
             </h3>
             
             <p className="text-muted-foreground leading-relaxed mb-6">

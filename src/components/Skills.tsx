@@ -47,9 +47,11 @@ export const Skills = () => {
           viewport={{ once: true }}
           className="glass p-6 rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-300 group"
         >
-          <div className={`flex items-center gap-3 mb-4 ${category.color}`}>
-            {category.icon}
-            <h3 className="font-heading font-semibold text-lg">{category.title}</h3>
+          <div className={`flex items-center gap-3 mb-6 ${category.color}`}>
+            <div className="p-2 rounded-lg bg-white/5 border border-white/10">
+              {category.icon}
+            </div>
+            <h3 className="font-heading italic text-xl">{category.title}</h3>
           </div>
           <div className="flex flex-wrap gap-2">
             {category.skills.map((skill, sIdx) => (
