@@ -13,7 +13,7 @@ import { Experience } from '@/components/Experience';
 import { Projects } from '@/components/Projects';
 import { Certifications } from '@/components/Certifications';
 import { Contact } from '@/components/Contact';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 import { ResumeModal } from '@/components/ResumeModal';
 
 export default function App() {
