@@ -36,19 +36,38 @@ const skillCategories = [
 ];
 
 export const Skills = () => {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+  };
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <motion.div 
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-100px" }}
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+    >
       {skillCategories.map((category, idx) => (
         <motion.div
           key={idx}
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.4, delay: idx * 0.1 }}
-          viewport={{ once: true }}
-          className="glass p-6 rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-300 group"
+          variants={item}
+          whileHover={{ y: -5, transition: { duration: 0.2 } }}
+          className="glass p-6 rounded-2xl border border-white/5 hover:border-primary/30 hover:bg-white/[0.03] transition-all duration-300 group"
         >
           <div className={`flex items-center gap-3 mb-6 ${category.color}`}>
-            <div className="p-2 rounded-lg bg-white/5 border border-white/10">
+            <div className="p-2 rounded-lg bg-white/5 border border-white/10 group-hover:border-primary/30 transition-colors">
               {category.icon}
             </div>
             <h3 className="font-heading italic text-xl">{category.title}</h3>
@@ -57,7 +76,7 @@ export const Skills = () => {
             {category.skills.map((skill, sIdx) => (
               <span
                 key={sIdx}
-                className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 border border-white/10 text-muted-foreground group-hover:text-foreground transition-colors"
+                className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 border border-white/10 text-muted-foreground group-hover:text-foreground group-hover:border-primary/20 transition-all"
               >
                 {skill}
               </span>
@@ -65,6 +84,6 @@ export const Skills = () => {
           </div>
         </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 };

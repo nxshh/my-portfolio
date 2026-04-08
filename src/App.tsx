@@ -6,15 +6,15 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown, Download, Rocket } from 'lucide-react';
-import { Navbar } from './components/Navbar';
-import { Terminal } from './components/Terminal';
-import { Skills } from './components/Skills';
-import { Experience } from './components/Experience';
-import { Projects } from './components/Projects';
-import { Certifications } from './components/Certifications';
-import { Contact } from './components/Contact';
-import { Button } from './components/ui/button';
-import { ResumeModal } from './components/ResumeModal';
+import { Navbar } from '@/components/Navbar';
+import { Terminal } from '@/components/Terminal';
+import { Skills } from '@/components/Skills';
+import { Experience } from '@/components/Experience';
+import { Projects } from '@/components/Projects';
+import { Certifications } from '@/components/Certifications';
+import { Contact } from '@/components/Contact';
+import { Button } from '@/components/ui/button';
+import { ResumeModal } from '@/components/ResumeModal';
 
 export default function App() {
   const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
@@ -54,11 +54,36 @@ export default function App() {
 
       {/* Background Effects */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(127,90,240,0.05),transparent_50%)]" />
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full animate-pulse" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-accent/5 blur-[120px] rounded-full animate-pulse" />
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 pointer-events-none" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.05, 0.1, 0.05],
+            x: [0, 50, 0],
+            y: [0, -30, 0]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(197,160,89,0.08),transparent_50%)]" 
+        />
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.1, 1],
+            opacity: [0.1, 0.15, 0.1],
+            rotate: [0, 10, 0]
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/10 blur-[140px] rounded-full" 
+        />
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.3, 1],
+            opacity: [0.05, 0.1, 0.05],
+            x: [0, -40, 0]
+          }}
+          transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-accent/5 blur-[140px] rounded-full" 
+        />
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.15] brightness-100 contrast-150 pointer-events-none mix-blend-overlay" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
       </div>
 
       <Navbar onDownloadResume={() => setIsResumeModalOpen(true)} />
@@ -81,9 +106,9 @@ export default function App() {
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={!isLoading ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="text-6xl md:text-8xl lg:text-9xl font-heading font-medium tracking-tight mb-8"
             >
               Nisarga <span className="italic font-light text-primary">Murthy</span>
@@ -92,7 +117,7 @@ export default function App() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={!isLoading ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
               className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed font-light tracking-wide"
             >
               DevOps Engineer <span className="mx-3 text-white/10">/</span> Cybersecurity Engineer
@@ -183,10 +208,24 @@ export default function App() {
         <section id="skills" className="py-24 px-6">
           <div className="container mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">Technical Arsenal</h2>
-              <p className="text-muted-foreground max-w-xl mx-auto">
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-5xl font-heading font-medium mb-4 italic"
+              >
+                Technical Arsenal
+              </motion.h2>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="text-muted-foreground max-w-xl mx-auto font-light tracking-wide"
+              >
                 A comprehensive toolkit built for modern infrastructure and robust security.
-              </p>
+              </motion.p>
             </div>
             <Skills />
           </div>
@@ -196,10 +235,24 @@ export default function App() {
         <section id="experience" className="py-24 px-6 bg-white/[0.02]">
           <div className="container mx-auto max-w-4xl">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">Professional Journey</h2>
-              <p className="text-muted-foreground">
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-5xl font-heading font-medium mb-4 italic"
+              >
+                Professional Journey
+              </motion.h2>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="text-muted-foreground font-light tracking-wide"
+              >
                 My path through the industry, focused on optimization and protection.
-              </p>
+              </motion.p>
             </div>
             <Experience />
           </div>
@@ -209,10 +262,24 @@ export default function App() {
         <section id="projects" className="py-24 px-6">
           <div className="container mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">Featured Work</h2>
-              <p className="text-muted-foreground max-w-xl mx-auto">
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-5xl font-heading font-medium mb-4 italic"
+              >
+                Featured Work
+              </motion.h2>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="text-muted-foreground max-w-xl mx-auto font-light tracking-wide"
+              >
                 Real-world applications and research projects that push boundaries.
-              </p>
+              </motion.p>
             </div>
             <Projects />
           </div>
@@ -222,10 +289,24 @@ export default function App() {
         <section className="py-24 px-6 bg-white/[0.02]">
           <div className="container mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">Certifications</h2>
-              <p className="text-muted-foreground">
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-5xl font-heading font-medium mb-4 italic"
+              >
+                Certifications
+              </motion.h2>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="text-muted-foreground font-light tracking-wide"
+              >
                 Validated expertise in security and infrastructure.
-              </p>
+              </motion.p>
             </div>
             <Certifications />
           </div>

@@ -26,16 +26,35 @@ const certs = [
 ];
 
 export const Certifications = () => {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, scale: 0.9 },
+    show: { opacity: 1, scale: 1, transition: { duration: 0.4 } }
+  };
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <motion.div 
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-50px" }}
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+    >
       {certs.map((cert, idx) => (
         <motion.div
           key={idx}
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.4, delay: idx * 0.1 }}
-          viewport={{ once: true }}
-          className="glass p-5 rounded-xl border border-white/5 flex flex-col gap-3 hover:bg-white/10 transition-colors"
+          variants={item}
+          whileHover={{ y: -5, transition: { duration: 0.2 } }}
+          className="glass p-5 rounded-xl border border-white/5 flex flex-col gap-3 hover:bg-white/10 hover:border-primary/20 transition-all"
         >
           <Award className="w-8 h-8 text-primary opacity-40 mb-2" />
           <div>
@@ -47,6 +66,6 @@ export const Certifications = () => {
           </div>
         </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 };
